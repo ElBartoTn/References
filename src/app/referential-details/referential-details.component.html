@@ -1,0 +1,49 @@
+<h1 mat-dialog-title>{{ referential.Title }}</h1>
+<div mat-dialog-content style="height:100%">
+  <mat-form-field class="mat-select">
+    <input
+      type="text"
+      placeholder="Choisir une annexe"
+      matInput
+      [formControl]="myControl"
+      [matAutocomplete]="auto"
+    />
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option
+        *ngFor="let anx of (filteredOptions | async)"
+        [value]="anx.Title"
+        autoActiveFirstOption
+        (onSelectionChange)="setAnnex(event, anx)"
+      >
+        {{ anx.Title }}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button mat-icon-button><img src="../../assets/ms-excel.png" /></button>
+  <button mat-icon-button>
+    <img src="../../assets/icons8-xml-file-48.png" />
+  </button>
+
+  <mat-list>
+    <mat-list-item>
+      <h4>Code: {{ annexe.ID }}</h4>
+    </mat-list-item>
+    <mat-list-item
+      ><h4>Domaine: {{ referential.Title }}</h4></mat-list-item
+    >
+    <mat-list-item
+      ><h4>Annexe: {{ annexe.Title }}</h4>
+    </mat-list-item>
+    <mat-list-item><h4>Etablissement assujettis:</h4> </mat-list-item>
+    <mat-list>
+      <mat-list-item *ngFor="let assujettis of annexe.AssujettisEtab">
+        <h4>* {{ assujettis }}</h4>
+      </mat-list-item>
+    </mat-list>
+  </mat-list>
+</div>
+<mat-dialog-actions>
+  <button mat-stroked-button>Réferentiel précedant</button>
+
+  <button mat-stroked-button>Réferentiel suivant</button>
+</mat-dialog-actions>

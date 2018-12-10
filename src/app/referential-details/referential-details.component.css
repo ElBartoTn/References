@@ -1,0 +1,12 @@
+.mat-select {
+  width: 70%;
+  margin-bottom: 20px;
+}
+
+.even {
+  background-color: #f2f2f2;
+}
+
+md-dialog-container {
+  margin: auto;
+}
