@@ -29,11 +29,18 @@
     <mat-list>
       <mat-list-item>
         <h4 matLine>Code: {{ annexe.ID }}</h4>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
         <h4 matLine>Domaine: {{ referential.Title }}</h4>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item>
         <h4 matLine>Annexe: {{ annexe.Title }}</h4>
       </mat-list-item>
     </mat-list>
-    <h4>Etablissement assujettis:</h4>
+    <mat-divider></mat-divider>
+    <h4 class="assujetis">Etablissement assujettis:</h4>
     <mat-list>
       <mat-list-item>
         <h4 matLine *ngFor="let assujettis of annexe.AssujettisEtab">
@@ -42,6 +49,7 @@
       </mat-list-item>
     </mat-list>
   </div>
+  <mat-divider></mat-divider>
   <div class="spacer"></div>
   <div mat-dialog-actions align="end">
     <button mat-button color="primary"><h3>Réferentiel précedant</h3></button>

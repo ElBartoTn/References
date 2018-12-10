@@ -26,6 +26,10 @@ md-dialog-container {
 }
 
 .mat-line {
-  margin-bottom: 20px !important;
+  margin-bottom: 10px !important;
   font-weight: bold !important;
+}
+
+.assujetis {
+  margin-bottom: 0px;
 }
