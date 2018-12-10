@@ -10,3 +10,13 @@
 md-dialog-container {
   margin: auto;
 }
+
+.fixActionRow {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.spacer {
+  flex-grow: 1;
+}

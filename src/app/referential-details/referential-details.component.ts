@@ -10,6 +10,7 @@ import { AnnexesService } from '../services/annexes-service/annexes.service';
 import { FormControl } from '@angular/forms';
 import { Observable } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { isNullOrUndefined } from 'util';
 @Component({
   selector: 'app-referential-details',
   templateUrl: './referential-details.component.html',
@@ -57,5 +58,9 @@ export class ReferentialDetailsComponent implements OnInit {
 
   setAnnex(event: MatOptionSelectionChange, anx: Annexes) {
     this.annexe = anx;
+  }
+
+  shouldShowDownloadButtons(): boolean {
+    return !isNullOrUndefined(this.annexe);
   }
 }

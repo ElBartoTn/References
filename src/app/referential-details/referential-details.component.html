@@ -1,49 +1,56 @@
-<h1 mat-dialog-title>{{ referential.Title }}</h1>
-<div mat-dialog-content style="height:100%">
-  <mat-form-field class="mat-select">
-    <input
-      type="text"
-      placeholder="Choisir une annexe"
-      matInput
-      [formControl]="myControl"
-      [matAutocomplete]="auto"
-    />
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option
-        *ngFor="let anx of (filteredOptions | async)"
-        [value]="anx.Title"
-        autoActiveFirstOption
-        (onSelectionChange)="setAnnex(event, anx)"
-      >
-        {{ anx.Title }}
-      </mat-option>
-    </mat-autocomplete>
-  </mat-form-field>
-  <button mat-icon-button><img src="../../assets/ms-excel.png" /></button>
-  <button mat-icon-button>
-    <img src="../../assets/icons8-xml-file-48.png" />
-  </button>
+<div class="fixActionRow">
+  <h1 mat-dialog-title>{{ referential.Title }}</h1>
+  <div mat-dialog-content style="height:100%">
+    <mat-form-field class="mat-select">
+      <input
+        type="text"
+        placeholder="Choisir une annexe"
+        matInput
+        [formControl]="myControl"
+        [matAutocomplete]="auto"
+      />
+      <mat-autocomplete #auto="matAutocomplete">
+        <mat-option
+          *ngFor="let anx of (filteredOptions | async)"
+          [value]="anx.Title"
+          autoActiveFirstOption
+          (onSelectionChange)="setAnnex(event, anx)"
+        >
+          {{ anx.Title }}
+        </mat-option>
+      </mat-autocomplete>
+    </mat-form-field>
+    <button mat-stroked-button *ngIf="shouldShowDownloadButtons()">
+      <img src="../../assets/ms-excel.png" />
+    </button>
+    <button mat-stroked-button>
+      <img src="../../assets/icons8-xml-file-48.png" />
+    </button>
 
-  <mat-list>
-    <mat-list-item>
-      <h4>Code: {{ annexe.ID }}</h4>
-    </mat-list-item>
-    <mat-list-item
-      ><h4>Domaine: {{ referential.Title }}</h4></mat-list-item
-    >
-    <mat-list-item
-      ><h4>Annexe: {{ annexe.Title }}</h4>
-    </mat-list-item>
-    <mat-list-item><h4>Etablissement assujettis:</h4> </mat-list-item>
     <mat-list>
-      <mat-list-item *ngFor="let assujettis of annexe.AssujettisEtab">
-        <h4>* {{ assujettis }}</h4>
+      <mat-list-item>
+        <h4>Code: {{ annexe.ID }}</h4>
       </mat-list-item>
+      <mat-list-item
+        ><h4>Domaine: {{ referential.Title }}</h4></mat-list-item
+      >
+      <mat-list-item
+        ><h4>Annexe: {{ annexe.Title }}</h4>
+      </mat-list-item>
+      <mat-list-item><h4>Etablissement assujettis:</h4> </mat-list-item>
+      <mat-list>
+        <mat-list-item *ngFor="let assujettis of annexe.AssujettisEtab">
+          <h4>* {{ assujettis }}</h4>
+        </mat-list-item>
+      </mat-list>
     </mat-list>
-  </mat-list>
+  </div>
+  <div class="spacer"></div>
+  <div mat-dialog-actions align="end">
+    <button mat-button color="primary"><h3>Réferentiel précedant</h3></button>
+    <button mat-button color="primary"><h3>Réferentiel suivant</h3></button>
+    <button mat-button color="warn" [mat-dialog-close]="true">
+      <h3>Fermer</h3>
+    </button>
+  </div>
 </div>
-<mat-dialog-actions>
-  <button mat-stroked-button>Réferentiel précedant</button>
-
-  <button mat-stroked-button>Réferentiel suivant</button>
-</mat-dialog-actions>
