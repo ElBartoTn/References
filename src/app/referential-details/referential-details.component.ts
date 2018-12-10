@@ -32,12 +32,12 @@ export class ReferentialDetailsComponent implements OnInit {
     public data: { ref: Referential }
   ) {}
   ngOnInit() {
+    this.referential = new Referential();
     this.referential = this.data.ref;
     this.annexesService = new AnnexesService();
     this.annexesList = new Array<Annexes>();
     this.myControl = new FormControl();
     this.annexe = new Annexes();
-    console.log(this.referential);
     this.annexesList = this.annexesService.getAnnexesListByRefID(
       this.referential.ID
     );
@@ -61,6 +61,6 @@ export class ReferentialDetailsComponent implements OnInit {
   }
 
   shouldShowDownloadButtons(): boolean {
-    return !isNullOrUndefined(this.annexe);
+    return !isNullOrUndefined(this.annexe.ID);
   }
 }

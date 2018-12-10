@@ -1,6 +1,6 @@
 <div class="fixActionRow">
   <h1 mat-dialog-title>{{ referential.Title }}</h1>
-  <div mat-dialog-content style="height:100%">
+  <div mat-dialog-content>
     <mat-form-field class="mat-select">
       <input
         type="text"
@@ -20,29 +20,26 @@
         </mat-option>
       </mat-autocomplete>
     </mat-form-field>
-    <button mat-stroked-button *ngIf="shouldShowDownloadButtons()">
-      <img src="../../assets/ms-excel.png" />
+    <button mat-icon-button *ngIf="shouldShowDownloadButtons()">
+      <img class="icon" src="../../assets/ms-excel.png" />
     </button>
-    <button mat-stroked-button>
-      <img src="../../assets/icons8-xml-file-48.png" />
+    <button mat-icon-button *ngIf="shouldShowDownloadButtons()">
+      <img class="icon" src="../../assets/icons8-xml-file-48.png" />
     </button>
-
     <mat-list>
       <mat-list-item>
-        <h4>Code: {{ annexe.ID }}</h4>
+        <h4 matLine>Code: {{ annexe.ID }}</h4>
+        <h4 matLine>Domaine: {{ referential.Title }}</h4>
+        <h4 matLine>Annexe: {{ annexe.Title }}</h4>
       </mat-list-item>
-      <mat-list-item
-        ><h4>Domaine: {{ referential.Title }}</h4></mat-list-item
-      >
-      <mat-list-item
-        ><h4>Annexe: {{ annexe.Title }}</h4>
+    </mat-list>
+    <h4>Etablissement assujettis:</h4>
+    <mat-list>
+      <mat-list-item>
+        <h4 matLine *ngFor="let assujettis of annexe.AssujettisEtab">
+          * {{ assujettis }}
+        </h4>
       </mat-list-item>
-      <mat-list-item><h4>Etablissement assujettis:</h4> </mat-list-item>
-      <mat-list>
-        <mat-list-item *ngFor="let assujettis of annexe.AssujettisEtab">
-          <h4>* {{ assujettis }}</h4>
-        </mat-list-item>
-      </mat-list>
     </mat-list>
   </div>
   <div class="spacer"></div>
