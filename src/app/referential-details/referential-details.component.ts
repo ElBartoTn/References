@@ -22,9 +22,7 @@ export class ReferentialDetailsComponent implements OnInit {
   annexesList: Array<Annexes>;
   annexesService: AnnexesService;
   myControl: FormControl;
-  options: Annexes[];
   annexe: Annexes;
-  filteredOptions: Observable<Annexes[]>;
   constructor(
     private service: AnnexesService,
     public dialogRef: MatDialogRef<ReferentialDetailsComponent>,
@@ -40,19 +38,6 @@ export class ReferentialDetailsComponent implements OnInit {
     this.annexe = new Annexes();
     this.annexesList = this.annexesService.getAnnexesListByRefID(
       this.referential.ID
-    );
-    this.options = this.annexesList;
-    this.filteredOptions = this.myControl.valueChanges.pipe(
-      startWith<string | Annexes>(''),
-      map(value => (typeof value === 'string' ? value : value.Title)),
-      map(title => (title ? this._filter(title) : this.options.slice()))
-    );
-  }
-
-  private _filter(value: string): Annexes[] {
-    const filterValue = value.toLowerCase();
-    return this.options.filter(
-      option => option.Title.toLowerCase().indexOf(filterValue) === 0
     );
   }
 

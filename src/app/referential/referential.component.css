@@ -9,9 +9,9 @@ table {
 }
 
 .mat-table-header {
-  color: black;
+  color: white;
   font-size: 20px;
-  background-color: gray;
+  background-color: #673ab7;
 }
 .mat-row:nth-child(even) {
   color: black;

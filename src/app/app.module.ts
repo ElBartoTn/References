@@ -8,6 +8,7 @@ import { ReferentialMaterialModule } from '../material-modules';
 import { ReferentialDetailsComponent } from './referential-details/referential-details.component';
 import { MatDialogModule } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReferentialMaterialModule,
     MatDialogModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxMatSelectSearchModule
   ],
   entryComponents: [ReferentialDetailsComponent],
   providers: [],

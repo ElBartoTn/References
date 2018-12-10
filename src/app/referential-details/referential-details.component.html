@@ -2,23 +2,15 @@
   <h1 mat-dialog-title>{{ referential.Title }}</h1>
   <div mat-dialog-content>
     <mat-form-field class="mat-select">
-      <input
-        type="text"
-        placeholder="Choisir une annexe"
-        matInput
-        [formControl]="myControl"
-        [matAutocomplete]="auto"
-      />
-      <mat-autocomplete #auto="matAutocomplete">
+      <mat-select placeholder="Choisir annexe" [formControl]="myControl">
         <mat-option
-          *ngFor="let anx of (filteredOptions | async)"
-          [value]="anx.Title"
-          autoActiveFirstOption
+          *ngFor="let anx of annexesList"
+          [value]="anx"
           (onSelectionChange)="setAnnex(event, anx)"
         >
-          {{ anx.Title }}
+          {{ anx.ID }} - {{ anx.Title }}
         </mat-option>
-      </mat-autocomplete>
+      </mat-select>
     </mat-form-field>
     <button mat-icon-button *ngIf="shouldShowDownloadButtons()">
       <img class="icon" src="../../assets/ms-excel.png" />

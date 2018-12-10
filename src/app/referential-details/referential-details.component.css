@@ -1,5 +1,5 @@
 .mat-select {
-  width: 60%;
+  width: 100%;
 }
 
 .even {
@@ -32,4 +32,9 @@ md-dialog-container {
 
 .assujetis {
   margin-bottom: 0px;
+}
+
+::ng-deep .mat-select-content {
+  width: 60%;
+  font-size: 10px;
 }
