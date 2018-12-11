@@ -20,16 +20,6 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <div *ngIf="shouldShowDownloadButtons()">
-      Télécharger
-      <button mat-raised-button class="small" color="primary">
-        <h3>Annexe</h3>
-      </button>
-      <button mat-raised-button class="small" color="primary">
-        <h3>Aide</h3>
-      </button>
-      <mat-divider></mat-divider>
-    </div>
     <mat-list>
       <mat-list-item>
         <h4 matLine>Code: {{ annexe.ID }}</h4>
@@ -56,6 +46,15 @@
   <mat-divider></mat-divider>
   <div class="spacer"></div>
   <div mat-dialog-actions align="end">
+    <div *ngIf="shouldShowDownloadButtons()">
+      <span style="font-weight: bold">Télécharger</span>
+      <button mat-raised-button class="small" color="primary">
+        <h3>Annexe</h3>
+      </button>
+      <button mat-raised-button class="small" color="primary">
+        <h3>Aide</h3>
+      </button>
+    </div>
     <button
       mat-raised-button
       class="small"
