@@ -1,20 +1,20 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import { Component, OnInit, Inject } from "@angular/core";
 import {
   MatDialogRef,
   MAT_DIALOG_DATA,
   MatOptionSelectionChange
-} from '@angular/material';
-import { Referential } from 'src/Models/Referential';
-import { Annexes } from 'src/Models/Annexes';
-import { AnnexesService } from '../services/annexes-service/annexes.service';
-import { FormControl } from '@angular/forms';
-import { Observable } from 'rxjs';
-import { map, startWith } from 'rxjs/operators';
-import { isNullOrUndefined } from 'util';
+} from "@angular/material";
+import { Referential } from "src/Models/Referential";
+import { Annexes } from "src/Models/Annexes";
+import { AnnexesService } from "../services/annexes-service/annexes.service";
+import { FormControl } from "@angular/forms";
+import { Observable } from "rxjs";
+import { map, startWith } from "rxjs/operators";
+import { isNullOrUndefined } from "util";
 @Component({
-  selector: 'app-referential-details',
-  templateUrl: './referential-details.component.html',
-  styleUrls: ['./referential-details.component.css'],
+  selector: "app-referential-details",
+  templateUrl: "./referential-details.component.html",
+  styleUrls: ["./referential-details.component.css"],
   providers: [AnnexesService]
 })
 export class ReferentialDetailsComponent implements OnInit {

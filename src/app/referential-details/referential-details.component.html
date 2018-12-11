@@ -12,12 +12,17 @@
         </mat-option>
       </mat-select>
     </mat-form-field>
-    <button mat-icon-button *ngIf="shouldShowDownloadButtons()">
-      <img class="icon" src="../../assets/ms-excel.png" />
-    </button>
-    <button mat-icon-button *ngIf="shouldShowDownloadButtons()">
-      <img class="icon" src="../../assets/icons8-xml-file-48.png" />
-    </button>
+    <div *ngIf="shouldShowDownloadButtons()">
+      Télécharger <button mat-button color="primary"><h3>Annexe</h3></button>
+      <button mat-button color="primary"><h3>Aide</h3></button>
+      <button mat-icon-button>
+        <img class="icon" src="../../assets/ms-excel.png" />
+      </button>
+      <button mat-icon-button>
+        <img class="icon" src="../../assets/icons8-xml-file-48.png" />
+      </button>
+      <mat-divider></mat-divider>
+    </div>
     <mat-list>
       <mat-list-item>
         <h4 matLine>Code: {{ annexe.ID }}</h4>
@@ -44,8 +49,6 @@
   <mat-divider></mat-divider>
   <div class="spacer"></div>
   <div mat-dialog-actions align="end">
-    <button mat-button color="primary"><h3>Réferentiel précedant</h3></button>
-    <button mat-button color="primary"><h3>Réferentiel suivant</h3></button>
     <button mat-button color="warn" [mat-dialog-close]="true">
       <h3>Fermer</h3>
     </button>
