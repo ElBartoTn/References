@@ -1,6 +1,14 @@
 <div class="fixActionRow">
   <h1 mat-dialog-title>{{ referential.Title }}</h1>
   <div mat-dialog-content>
+    <div *ngIf="shouldShowDownloadButtons()" class="download-file-container">
+      <button mat-icon-button>
+        <img class="icon" src="../../assets/ms-excel.png" />
+      </button>
+      <button mat-icon-button>
+        <img class="icon" src="../../assets/icons8-xml-file-48.png" />
+      </button>
+    </div>
     <mat-form-field class="mat-select">
       <mat-select placeholder="Choisir annexe" [formControl]="myControl">
         <mat-option
@@ -13,13 +21,12 @@
       </mat-select>
     </mat-form-field>
     <div *ngIf="shouldShowDownloadButtons()">
-      Télécharger <button mat-button color="primary"><h3>Annexe</h3></button>
-      <button mat-button color="primary"><h3>Aide</h3></button>
-      <button mat-icon-button>
-        <img class="icon" src="../../assets/ms-excel.png" />
+      Télécharger
+      <button mat-raised-button class="small" color="primary">
+        <h3>Annexe</h3>
       </button>
-      <button mat-icon-button>
-        <img class="icon" src="../../assets/icons8-xml-file-48.png" />
+      <button mat-raised-button class="small" color="primary">
+        <h3>Aide</h3>
       </button>
       <mat-divider></mat-divider>
     </div>
@@ -49,7 +56,12 @@
   <mat-divider></mat-divider>
   <div class="spacer"></div>
   <div mat-dialog-actions align="end">
-    <button mat-button color="warn" [mat-dialog-close]="true">
+    <button
+      mat-raised-button
+      class="small"
+      color="warn"
+      [mat-dialog-close]="true"
+    >
       <h3>Fermer</h3>
     </button>
   </div>

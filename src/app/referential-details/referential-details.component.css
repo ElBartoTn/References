@@ -38,3 +38,13 @@ md-dialog-container {
   width: 60%;
   font-size: 10px;
 }
+
+.mat-raised-button.small {
+  line-height: 6px !important;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.download-file-container {
+  float: right;
+}
