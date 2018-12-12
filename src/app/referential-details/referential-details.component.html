@@ -2,7 +2,7 @@
   <h1 mat-dialog-title>{{ referential.Title }}</h1>
   <div mat-dialog-content>
     <div *ngIf="shouldShowDownloadButtons()" class="download-file-container">
-      <button mat-icon-button>
+      <button mat-icon-button matTooltip="Télècharger format excel">
         <img class="icon" src="../../assets/ms-excel.png" />
       </button>
       <button mat-icon-button>
@@ -10,12 +10,8 @@
       </button>
     </div>
     <mat-form-field class="mat-select">
-      <mat-select placeholder="Choisir annexe" [formControl]="myControl">
-        <mat-option
-          *ngFor="let anx of annexesList"
-          [value]="anx"
-          (onSelectionChange)="setAnnex(event, anx)"
-        >
+      <mat-select placeholder="Choisir annexe" [(ngModel)]="annexe">
+        <mat-option *ngFor="let anx of annexesList" [value]="anx">
           {{ anx.ID }} - {{ anx.Title }}
         </mat-option>
       </mat-select>
@@ -46,15 +42,6 @@
   <mat-divider></mat-divider>
   <div class="spacer"></div>
   <div mat-dialog-actions align="end">
-    <div *ngIf="shouldShowDownloadButtons()">
-      <span style="font-weight: bold">Télécharger</span>
-      <button mat-raised-button class="small" color="primary">
-        <h3>Annexe</h3>
-      </button>
-      <button mat-raised-button class="small" color="primary">
-        <h3>Aide</h3>
-      </button>
-    </div>
     <button
       mat-raised-button
       class="small"
