@@ -3,6 +3,7 @@ import { ReferentialService } from '../services/referentials-service/referential
 import { MatTableDataSource } from '@angular/material';
 import { MatDialog } from '@angular/material';
 import { ReferentialDetailsComponent } from '../referential-details/referential-details.component';
+import { FormControl } from '@angular/forms';
 
 import { from } from 'rxjs';
 import { Referential } from 'src/Models/Referential';
@@ -16,6 +17,8 @@ export class ReferentialComponent implements OnInit {
   referentialList: Array<Referential>;
   displayedColumns: string[] = ['Title', 'ShortTitle', 'Consult'];
   dataSource: any;
+  date = new FormControl(new Date());
+  serializedDate = new FormControl(new Date().toISOString());
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {

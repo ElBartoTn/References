@@ -1,4 +1,13 @@
-<mat-form-field color="primary">
+<mat-card>
+  <mat-form-field color="accent">
+    <mat-label>Choisir une date</mat-label>
+    <input matInput [matDatepicker]="picker2" [formControl]="serializedDate" />
+    <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
+    <mat-datepicker #picker2 color="primary"></mat-datepicker>
+  </mat-form-field>
+  <button color="primary" mat-raised-button>Mettre à jour</button>
+</mat-card>
+<mat-form-field class="filter" color="primary">
   <input
     type="text"
     matInput

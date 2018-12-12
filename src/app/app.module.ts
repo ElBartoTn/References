@@ -6,7 +6,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReferentialComponent } from './referential/referential.component';
 import { ReferentialMaterialModule } from '../material-modules';
 import { ReferentialDetailsComponent } from './referential-details/referential-details.component';
-import { MatDialogModule } from '@angular/material';
+import { MatDialogModule, MAT_DATE_LOCALE } from '@angular/material';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 
@@ -27,7 +27,7 @@ import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
     NgxMatSelectSearchModule
   ],
   entryComponents: [ReferentialDetailsComponent],
-  providers: [],
+  providers: [{ provide: MAT_DATE_LOCALE, useValue: 'fr-FR' }],
   bootstrap: [AppComponent]
 })
 export class ReferentialAppModule {}
