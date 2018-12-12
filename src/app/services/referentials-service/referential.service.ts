@@ -53,7 +53,7 @@ export class ReferentialService {
     referentialList.push(new Referential('SD 4: CONFORMITE', 'RCONF', true));
     referentialList.push(new Referential('SD 5: LBA/FT', 'RLAB/FT', true));
     referentialList.push(
-      new Referential('6- REPORTING D"ORDRE GENERALE', 'RDG', true)
+      new Referential('6- REPORTING D\'ORDRE GENERALE', 'RDG', true)
     );
     referentialList.push(
       new Referential(
