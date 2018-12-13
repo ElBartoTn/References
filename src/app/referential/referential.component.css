@@ -22,3 +22,11 @@ table {
   background-color: white;
   color: black;
 }
+
+.card-update {
+  width: 20%;
+}
+
+.calendar-update {
+  margin-right: 50px;
+}
